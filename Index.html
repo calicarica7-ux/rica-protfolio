@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rica Calica | Portfolio</title>
+  <link rel="stylesheet" href="rica_fixed.css">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a class="logo" href="#home">Calica Rica Santiago<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">Personal Info</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#java">Java Code</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <p class="tag">BS INFORMATION TECHNOLOGY</p>
+        <h1>Hello, I'm <span>Rica Calica</span></h1>
+        <p>A first-year BSIT student who is interested in technology,
+          computers, and learning new things.</p>
+        <a class="button" href="#about">Know More About Me</a>
+      </div>
+      <div class="profile-photo">
+        <img src="cariiii.jpg" alt="Rica Calica">
+      </div>
+    </section>
+
+    <!-- PERSONAL INFORMATION -->
+    <section id="about" class="section">
+      <p class="tag">GET TO KNOW ME</p>
+      <h2>Personal Information</h2>
+      <div class="card">
+        <p><strong>Name:</strong> Rica S. Calica</p>
+        <p><strong>Course:</strong> Bachelor of Science in Information Technology</p>
+        <p><strong>School:</strong> Our Lady of the Sacred Heart College of Guimba, Inc.</p>
+        <p><strong>Address:</strong> Guimba, Nueva Ecija</p>
+        <p><strong>Email:</strong> calicarica7@gmail.com</p>
+        <p class="intro">I am a simple and friendly student. I may be quiet at first,
+          but I enjoy talking and spending time with people once I feel comfortable.
+          I like drawing, listening to music, watching videos, and taking pictures
+          of flowers and sunsets. I am also interested in learning more about
+          technology and computers.</p>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <p class="tag">MY SCHOOL JOURNEY</p>
+      <h2>Educational Background</h2>
+      <div class="timeline">
+        <article class="card">
+          <span class="year">Elementary</span>
+          <h3>Guimba East Elementary School</h3>
+          <p>Kinder to Grade 6</p>
+        </article>
+        <article class="card">
+          <span class="year">Junior High School</span>
+          <h3>Bartolome Sangalang National High School</h3>
+          <p>Grades 7 to 10</p>
+        </article>
+        <article class="card">
+          <span class="year">Senior High School</span>
+          <h3>Bonifacio Luz Natividad Educational Foundation, Inc.</h3>
+          <p>HUMSS Strand</p>
+        </article>
+        <article class="card">
+          <span class="year">College</span>
+          <h3>Our Lady of the Sacred Heart College of Guimba, Inc.</h3>
+          <p>BS Information Technology</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <p class="tag">WHAT I CAN DO</p>
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="card"><h3>Basic HTML</h3><p>Creating the structure of a simple webpage.</p></div>
+        <div class="card"><h3>Basic CSS</h3><p>Adding colors, styles, and layouts to webpages.</p></div>
+        <div class="card"><h3>Basic Java</h3><p>Writing simple programs using variables, loops, and conditions.</p></div>
+        <div class="card"><h3>Communication</h3><p>Sharing ideas and working with classmates.</p></div>
+        <div class="card"><h3>Creativity</h3><p>Making simple designs and sharing creative ideas.</p></div>
+        <div class="card"><h3>Willingness to Learn</h3><p>Learning new things and improving my skills through practice.</p></div>
+      </div>
+    </section>
+
+    <!-- JAVA CODE -->
+    <section id="java" class="section">
+      <p class="tag">CC102 PERFORMANCE TASK</p>
+      <h2>Java Code</h2>
+      <div class="card">
+        <h3>Cycling Distance Analyzer</h3>
+        <p>This Java program records the distances of 12 cyclists and calculates
+          the total distance, average distance, farthest distance, and number
+          of cyclists who traveled at least 20 km.</p>
+        <pre><code>import java.util.Scanner;
+
+public class CyclingDistanceAnalyzer {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        double[] distances = new double[12];
+        double total = 0;
+        double average;
+        double farthest;
+        int farthestIndex = 0;
+        int count = 0;
+
+        // Input distances for 12 cyclists
+        for (int i = 0; i < distances.length; i++) {
+            while (true) {
+                System.out.print("Enter distance for cyclist "
+                        + (i + 1) + " (km): ");
+
+                if (input.hasNextDouble()) {
+                    double distance = input.nextDouble();
+
+                    if (distance >= 0) {
+                        distances[i] = distance;
+                        break;
+                    } else {
+                        System.out.println(
+                                "Invalid input! Distance must be nonnegative.");
+                    }
+                } else {
+                    System.out.println(
+                            "Invalid input! Please enter a number.");
+                    input.next();
+                }
+            }
+        }
+
+        // Calculate total distance
+        for (int i = 0; i < distances.length; i++) {
+            total += distances[i];
+
+            if (distances[i] >= 20) {
+                count++;
+            }
+        }
+
+        // Calculate average distance
+        average = total / distances.length;
+
+        // Find the cyclist who traveled the farthest
+        farthest = distances[0];
+
+        for (int i = 1; i < distances.length; i++) {
+            if (distances[i] > farthest) {
+                farthest = distances[i];
+                farthestIndex = i;
+            }
+        }
+
+        // Display results
+        System.out.println("\nCYCLING DISTANCE RESULTS");
+        System.out.printf("Total distance: %.2f km%n", total);
+        System.out.printf("Average distance: %.2f km%n", average);
+        System.out.printf("Farthest distance: %.2f km%n", farthest);
+        System.out.println("Cyclist who traveled the farthest: "
+                + (farthestIndex + 1));
+        System.out.println("Array index of farthest cyclist: "
+                + farthestIndex);
+        System.out.println("Cyclists who traveled at least 20 km: "
+                + count);
+
+        input.close();
+    }
+}</code></pre>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
